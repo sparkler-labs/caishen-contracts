@@ -1,0 +1,1007 @@
+{
+  "address": "0x1A26Ee3f3dd87d03EF26e06eb07c14D2e8e6Ae7B",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_decreaseCoefficient",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalSupplyByDay",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_mintPrice",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_stickNo",
+          "type": "uint256"
+        }
+      ],
+      "name": "DrawFortune",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_meritCoin",
+          "type": "address"
+        }
+      ],
+      "name": "InitFortuneStick",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_meritCoin",
+          "type": "address"
+        }
+      ],
+      "name": "InitMeritCoin",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_mintAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "OfferingIncense",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_old",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetDecreaseCoefficient",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_old",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetMintPrice",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_old",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetTotalSupplyByDay",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_days",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "UpdateSupplyByDay",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "WithdrawETH",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "decreaseCoefficient",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "drawFortune",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "firstMintByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fortuneStick",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fourthMintByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDays",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getOfferingIncenseFrequency",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fortuneStick",
+          "type": "address"
+        }
+      ],
+      "name": "initFortuneStick",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_meritCoin",
+          "type": "address"
+        }
+      ],
+      "name": "initMeritCoin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_decreaseCoefficient",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalSupplyByDay",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_mintPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastDecrement",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "meritCoin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintNum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mintPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "offeringIncense",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "remainingSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "secondMintByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDecreaseCoefficient",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMintPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTotalSupplyByDay",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "startTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "thirdMintByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupplyByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateSupplyByDay",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userMintNumByDay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "withdrawETH",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0xb554dd13a3e1ee13181e3295ea898ae50a065fb4800e3e71a863801e552bed7b",
+  "receipt": {
+    "to": null,
+    "from": "0x295C6d19e633a38563F0f74E3aa530546E32E7ef",
+    "contractAddress": "0x1A26Ee3f3dd87d03EF26e06eb07c14D2e8e6Ae7B",
+    "transactionIndex": 33,
+    "gasUsed": "1470517",
+    "logsBloom": "0x00000000000000000000000000200000000000000000000000800000000000000000000000000000000000000004800000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000020000000000000000040800000000000000000000000000000000400000020000000000000000000000000000000000000080008000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x7d80d1d353ef6d14cd8824bc72839508da538789a1e8721eb5b55a4b7ee12d6d",
+    "transactionHash": "0xb554dd13a3e1ee13181e3295ea898ae50a065fb4800e3e71a863801e552bed7b",
+    "logs": [
+      {
+        "transactionIndex": 33,
+        "blockNumber": 129448129,
+        "transactionHash": "0xb554dd13a3e1ee13181e3295ea898ae50a065fb4800e3e71a863801e552bed7b",
+        "address": "0x1A26Ee3f3dd87d03EF26e06eb07c14D2e8e6Ae7B",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000295c6d19e633a38563f0f74e3aa530546e32e7ef"
+        ],
+        "data": "0x",
+        "logIndex": 107,
+        "blockHash": "0x7d80d1d353ef6d14cd8824bc72839508da538789a1e8721eb5b55a4b7ee12d6d"
+      },
+      {
+        "transactionIndex": 33,
+        "blockNumber": 129448129,
+        "transactionHash": "0xb554dd13a3e1ee13181e3295ea898ae50a065fb4800e3e71a863801e552bed7b",
+        "address": "0x1A26Ee3f3dd87d03EF26e06eb07c14D2e8e6Ae7B",
+        "topics": [
+          "0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "logIndex": 108,
+        "blockHash": "0x7d80d1d353ef6d14cd8824bc72839508da538789a1e8721eb5b55a4b7ee12d6d"
+      }
+    ],
+    "blockNumber": 129448129,
+    "cumulativeGasUsed": "4619600",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "1719698400",
+    "1044910130000000000",
+    "888000000000000000000",
+    "2000000000000000"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "9fd1786fb00e290f20a66b6caa07b17b",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_decreaseCoefficient\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_totalSupplyByDay\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_mintPrice\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stickNo\",\"type\":\"uint256\"}],\"name\":\"DrawFortune\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_meritCoin\",\"type\":\"address\"}],\"name\":\"InitFortuneStick\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_meritCoin\",\"type\":\"address\"}],\"name\":\"InitMeritCoin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_mintAmount\",\"type\":\"uint256\"}],\"name\":\"OfferingIncense\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_old\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"SetDecreaseCoefficient\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_old\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"SetMintPrice\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_old\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"SetTotalSupplyByDay\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\"}],\"name\":\"UpdateSupplyByDay\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawETH\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"decreaseCoefficient\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"drawFortune\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstMintByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fortuneStick\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fourthMintByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDays\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"getOfferingIncenseFrequency\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fortuneStick\",\"type\":\"address\"}],\"name\":\"initFortuneStick\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_meritCoin\",\"type\":\"address\"}],\"name\":\"initMeritCoin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_decreaseCoefficient\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_totalSupplyByDay\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_mintPrice\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastDecrement\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"meritCoin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"mintNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mintPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"offeringIncense\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"remainingSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"secondMintByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"setDecreaseCoefficient\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"setMintPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_new\",\"type\":\"uint256\"}],\"name\":\"setTotalSupplyByDay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"thirdMintByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupplyByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"updateSupplyByDay\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userMintNumByDay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"withdrawETH\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"events\":{\"Initialized(uint8)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"}},\"kind\":\"dev\",\"methods\":{\"drawFortune()\":{\"details\":\"Draws a fortune stick for the caller and charges caller 8 Merit Coin. Requirements: - The caller must have approved the contract to spend 8 Merit Coin.\"},\"getDays()\":{\"details\":\"Returns the number of days.\",\"returns\":{\"_0\":\"The number of days as a uint256 value.\"}},\"initFortuneStick(address)\":{\"details\":\"Initializes the FortuneStick contract address.\",\"params\":{\"_fortuneStick\":\"The address of the FortuneStick contract. Requirements: - Only the contract owner can call this function.\"}},\"initMeritCoin(address)\":{\"details\":\"Initializes the MeritCoin contract address.\",\"params\":{\"_meritCoin\":\"The address of the MeritCoin contract. Requirements: - Only the contract owner can call this function.\"}},\"initialize(uint256,uint256,uint256,uint256)\":{\"details\":\"Initializes the CyberFortuneGod contract with the specified parameters.\",\"params\":{\"_decreaseCoefficient\":\"The decrease coefficient for the contract.\",\"_mintPrice\":\"The mint price for the contract.\",\"_startTime\":\"The start time for the contract.\",\"_totalSupplyByDay\":\"The total supply by day for the contract.\"}},\"offeringIncense()\":{\"details\":\"Performs the action of offering incense, mint MeritCoin for caller\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"setDecreaseCoefficient(uint256)\":{\"details\":\"Sets the decrease coefficient for the MeritCoin gained in `offeringIncense` Only the contract owner can call this function.\",\"params\":{\"_new\":\"The new value for the decrease coefficient.\"}},\"setMintPrice(uint256)\":{\"details\":\"Sets the mint price for MeritCoin (in offeringIncense)\",\"params\":{\"_new\":\"The new mint price to be set. Requirements: - Only the contract owner can call this function.\"}},\"setTotalSupplyByDay(uint256)\":{\"details\":\"Sets the total supply by day. Can only be called by the contract owner.\",\"params\":{\"_new\":\"The new total supply value.\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"withdrawETH(address)\":{\"details\":\"Allows the owner to withdraw ETH from the contract.\",\"params\":{\"_to\":\"The address to which the ETH will be transferred.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/CyberFortuneGod.sol\":\"CyberFortuneGod\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/ContextUpgradeable.sol\\\";\\nimport \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    function __Ownable_init() internal onlyInitializing {\\n        __Ownable_init_unchained();\\n    }\\n\\n    function __Ownable_init_unchained() internal onlyInitializing {\\n        _transferOwnership(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions anymore. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby removing any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n\\n    /**\\n     * @dev This empty reserved space is put in place to allow future versions to add new\\n     * variables without shifting down storage in the inheritance chain.\\n     * See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps\\n     */\\n    uint256[49] private __gap;\\n}\\n\",\"keccak256\":\"0x247c62047745915c0af6b955470a72d1696ebad4352d7d3011aef1a2463cd888\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.2;\\n\\nimport \\\"../../utils/AddressUpgradeable.sol\\\";\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Indicates that the contract has been initialized.\\n     * @custom:oz-retyped-from bool\\n     */\\n    uint8 private _initialized;\\n\\n    /**\\n     * @dev Indicates that the contract is in the process of being initialized.\\n     */\\n    bool private _initializing;\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint8 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts. Equivalent to `reinitializer(1)`.\\n     */\\n    modifier initializer() {\\n        bool isTopLevelCall = !_initializing;\\n        require(\\n            (isTopLevelCall && _initialized < 1) || (!AddressUpgradeable.isContract(address(this)) && _initialized == 1),\\n            \\\"Initializable: contract is already initialized\\\"\\n        );\\n        _initialized = 1;\\n        if (isTopLevelCall) {\\n            _initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            _initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * `initializer` is equivalent to `reinitializer(1)`, so a reinitializer may be used after the original\\n     * initialization step. This is essential to configure modules that are added through upgrades and that require\\n     * initialization.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     */\\n    modifier reinitializer(uint8 version) {\\n        require(!_initializing && _initialized < version, \\\"Initializable: contract is already initialized\\\");\\n        _initialized = version;\\n        _initializing = true;\\n        _;\\n        _initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        require(_initializing, \\\"Initializable: contract is not initializing\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     */\\n    function _disableInitializers() internal virtual {\\n        require(!_initializing, \\\"Initializable: contract is initializing\\\");\\n        if (_initialized < type(uint8).max) {\\n            _initialized = type(uint8).max;\\n            emit Initialized(type(uint8).max);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x0203dcadc5737d9ef2c211d6fa15d18ebc3b30dfa51903b64870b01a062b0b4e\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (utils/Address.sol)\\n\\npragma solidity ^0.8.1;\\n\\n/**\\n * @dev Collection of functions related to the address type\\n */\\nlibrary AddressUpgradeable {\\n    /**\\n     * @dev Returns true if `account` is a contract.\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * It is unsafe to assume that an address for which this function returns\\n     * false is an externally-owned account (EOA) and not a contract.\\n     *\\n     * Among others, `isContract` will return false for the following\\n     * types of addresses:\\n     *\\n     *  - an externally-owned account\\n     *  - a contract in construction\\n     *  - an address where a contract will be created\\n     *  - an address where a contract lived, but was destroyed\\n     * ====\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * You shouldn't rely on `isContract` to protect against flash loan attacks!\\n     *\\n     * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets\\n     * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract\\n     * constructor.\\n     * ====\\n     */\\n    function isContract(address account) internal view returns (bool) {\\n        // This method relies on extcodesize/address.code.length, which returns 0\\n        // for contracts in construction, since the code is only stored at the end\\n        // of the constructor execution.\\n\\n        return account.code.length > 0;\\n    }\\n\\n    /**\\n     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to\\n     * `recipient`, forwarding all available gas and reverting on errors.\\n     *\\n     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost\\n     * of certain opcodes, possibly making contracts go over the 2300 gas limit\\n     * imposed by `transfer`, making them unable to receive funds via\\n     * `transfer`. {sendValue} removes this limitation.\\n     *\\n     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].\\n     *\\n     * IMPORTANT: because control is transferred to `recipient`, care must be\\n     * taken to not create reentrancy vulnerabilities. Consider using\\n     * {ReentrancyGuard} or the\\n     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].\\n     */\\n    function sendValue(address payable recipient, uint256 amount) internal {\\n        require(address(this).balance >= amount, \\\"Address: insufficient balance\\\");\\n\\n        (bool success, ) = recipient.call{value: amount}(\\\"\\\");\\n        require(success, \\\"Address: unable to send value, recipient may have reverted\\\");\\n    }\\n\\n    /**\\n     * @dev Performs a Solidity function call using a low level `call`. A\\n     * plain `call` is an unsafe replacement for a function call: use this\\n     * function instead.\\n     *\\n     * If `target` reverts with a revert reason, it is bubbled up by this\\n     * function (like regular Solidity function calls).\\n     *\\n     * Returns the raw returned data. To convert to the expected return value,\\n     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].\\n     *\\n     * Requirements:\\n     *\\n     * - `target` must be a contract.\\n     * - calling `target` with `data` must not revert.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionCall(target, data, \\\"Address: low-level call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with\\n     * `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but also transferring `value` wei to `target`.\\n     *\\n     * Requirements:\\n     *\\n     * - the calling contract must have an ETH balance of at least `value`.\\n     * - the called Solidity function must be `payable`.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, value, \\\"Address: low-level call with value failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\\n     * with `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        require(address(this).balance >= value, \\\"Address: insufficient balance for call\\\");\\n        require(isContract(target), \\\"Address: call to non-contract\\\");\\n\\n        (bool success, bytes memory returndata) = target.call{value: value}(data);\\n        return verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {\\n        return functionStaticCall(target, data, \\\"Address: low-level static call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        require(isContract(target), \\\"Address: static call to non-contract\\\");\\n\\n        (bool success, bytes memory returndata) = target.staticcall(data);\\n        return verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the\\n     * revert reason using the provided one.\\n     *\\n     * _Available since v4.3._\\n     */\\n    function verifyCallResult(\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal pure returns (bytes memory) {\\n        if (success) {\\n            return returndata;\\n        } else {\\n            // Look for revert reason and bubble it up if present\\n            if (returndata.length > 0) {\\n                // The easiest way to bubble the revert reason is using memory via assembly\\n                /// @solidity memory-safe-assembly\\n                assembly {\\n                    let returndata_size := mload(returndata)\\n                    revert(add(32, returndata), returndata_size)\\n                }\\n            } else {\\n                revert(errorMessage);\\n            }\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x611aa3f23e59cfdd1863c536776407b3e33d695152a266fa7cfb34440a29a8a3\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\nimport \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    /**\\n     * @dev This empty reserved space is put in place to allow future versions to add new\\n     * variables without shifting down storage in the inheritance chain.\\n     * See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps\\n     */\\n    uint256[50] private __gap;\\n}\\n\",\"keccak256\":\"0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 amount\\n    ) external returns (bool);\\n}\\n\",\"keccak256\":\"0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../IERC20.sol\\\";\\n\\n/**\\n * @dev Interface for the optional metadata functions from the ERC20 standard.\\n *\\n * _Available since v4.1._\\n */\\ninterface IERC20Metadata is IERC20 {\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() external view returns (string memory);\\n\\n    /**\\n     * @dev Returns the symbol of the token.\\n     */\\n    function symbol() external view returns (string memory);\\n\\n    /**\\n     * @dev Returns the decimals places of the token.\\n     */\\n    function decimals() external view returns (uint8);\\n}\\n\",\"keccak256\":\"0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca\",\"license\":\"MIT\"},\"contracts/CyberFortuneGod.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.20;\\n\\nimport \\\"./interface/IMeritCoin.sol\\\";\\nimport \\\"./interface/IFortuneStick.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\n\\ncontract CyberFortuneGod is OwnableUpgradeable {\\n    uint256 public constant firstMintByDay = 88;\\n    uint256 public constant secondMintByDay = 66;\\n    uint256 public constant thirdMintByDay = 36;\\n    uint256 public constant fourthMintByDay = 30;\\n\\n    address public meritCoin;\\n    address public fortuneStick;\\n\\n    uint256 public startTime;\\n    uint256 public totalSupplyByDay;\\n    uint256 public decreaseCoefficient;\\n    uint256 public mintPrice;\\n\\n    uint256 public remainingSupply;\\n    uint256 public lastDecrement;\\n\\n    //Record the number of mint successes every day since the start\\n    //days => mint times\\n    mapping(uint256 => uint256) public mintNum;\\n\\n    //Record whether the distribution volume is updated on that day\\n    mapping(uint256 => bool) public updateSupplyByDay;\\n\\n    mapping(uint256 => mapping(address => uint256)) public userMintNumByDay;\\n\\n    event OfferingIncense(address _sender, uint256 _mintAmount);\\n    event DrawFortune(address _sender, uint256 _tokenId, uint256 _stickNo);\\n    event UpdateSupplyByDay(address _sender, uint256 _days, uint256 _timestamp);\\n\\n    event InitMeritCoin(address _sender, address _meritCoin);\\n    event InitFortuneStick(address _sender, address _meritCoin);\\n    event WithdrawETH(address _sender, address _receiver, uint256 _amount);\\n    event SetTotalSupplyByDay(address _sender, uint256 _old, uint256 _new);\\n    event SetMintPrice(address _sender, uint256 _old, uint256 _new);\\n    event SetDecreaseCoefficient(address _sender, uint256 _old, uint256 _new);\\n\\n    constructor(uint256 _startTime, uint256 _decreaseCoefficient, uint256 _totalSupplyByDay, uint256 _mintPrice) {\\n        initialize(_startTime, _decreaseCoefficient, _totalSupplyByDay, _mintPrice);\\n    }\\n\\n    /**\\n     * @dev Initializes the CyberFortuneGod contract with the specified parameters.\\n     * @param _startTime The start time for the contract.\\n     * @param _decreaseCoefficient The decrease coefficient for the contract.\\n     * @param _totalSupplyByDay The total supply by day for the contract.\\n     * @param _mintPrice The mint price for the contract.\\n     */\\n    function initialize(uint256 _startTime, uint256 _decreaseCoefficient, uint256 _totalSupplyByDay, uint256 _mintPrice) public initializer {\\n        __Ownable_init();\\n        startTime = _startTime;\\n        decreaseCoefficient = _decreaseCoefficient;\\n        totalSupplyByDay = _totalSupplyByDay;\\n        mintPrice = _mintPrice;\\n        remainingSupply = _totalSupplyByDay;\\n    }\\n\\n    // ==================== non-view function ====================\\n\\n    /**\\n     * @dev Performs the action of offering incense, mint MeritCoin for caller\\n     */\\n    function offeringIncense() external payable {\\n        require(msg.value >= mintPrice, \\\"CyberFortuneGod: payment amount is insufficient\\\");\\n\\n        uint256 _days = getDays();\\n\\n        require(userMintNumByDay[_days][msg.sender] < 3, \\\"CyberFortuneGod: Mint up to three times a day\\\");\\n\\n        //update supply by day\\n        if (!updateSupplyByDay[_days]) {\\n            updateSupplyByDay[_days] = true;\\n            remainingSupply = totalSupplyByDay;\\n\\n            emit UpdateSupplyByDay(msg.sender, _days, block.timestamp);\\n        }\\n\\n        uint256 _returns = getMintAmount();\\n        require(_returns > 0, \\\"CyberFortuneGod: Today's MERIT has been distributed out\\\");\\n\\n        userMintNumByDay[_days][msg.sender] += 1;\\n\\n        IMeritCoin(meritCoin).mint(msg.sender, _returns);\\n\\n        emit OfferingIncense(msg.sender, _returns);\\n    }\\n\\n    /**\\n     * @dev Draws a fortune stick for the caller and charges caller 8 Merit Coin.\\n     * Requirements:\\n     * - The caller must have approved the contract to spend 8 Merit Coin.\\n     */\\n    function drawFortune() external {\\n        uint256 _decimals = IMeritCoin(meritCoin).decimals();\\n        uint256 _burnAmount = 10 ** _decimals * 8;\\n        require(IMeritCoin(meritCoin).allowance(msg.sender, address(this)) >= 10 ** _decimals * 8, \\\"CyberFortuneGod: Requires 8 Merit Coin to draw fortune stick\\\");\\n\\n        IMeritCoin(meritCoin).transferFrom(msg.sender, address(this), _burnAmount);\\n        IMeritCoin(meritCoin).burn(_burnAmount);\\n\\n        uint256 _tokenId = IFortuneStick(fortuneStick).draw(msg.sender);\\n        (, uint256 _stickNo) = IFortuneStick(fortuneStick).getStickNo(_tokenId);\\n\\n        emit DrawFortune(msg.sender, _tokenId, _stickNo);\\n    }\\n\\n    // ==================== view function ====================\\n\\n    /**\\n     * @dev Returns the number of days.\\n     * @return The number of days as a uint256 value.\\n     */\\n    function getDays() public view returns (uint256) {\\n        return (block.timestamp - startTime) / (24 * 60 * 60);\\n    }\\n\\n    function getOfferingIncenseFrequency(address _user) external view returns (uint256) {\\n        uint256 _days = getDays();\\n        return 3 - userMintNumByDay[_days][_user];\\n    }\\n\\n    // ==================== private function ====================\\n\\n    /**\\n     * @dev Returns the amount of tokens to be minted.\\n     * @return _returns The amount of tokens to be minted.\\n     */\\n    function getMintAmount() private returns (uint256 _returns) {\\n        if (remainingSupply == 0) {\\n            return 0;\\n        }\\n\\n        uint256 _days = getDays();\\n        uint256 _mintNum = mintNum[_days];\\n        uint256 _decimals = IMeritCoin(meritCoin).decimals();\\n\\n        _returns = _mintNum < 4 ? getTop4Amount(_decimals, _mintNum) : (lastDecrement * (10 ** _decimals)) / decreaseCoefficient;\\n\\n        if (_returns >= remainingSupply) {\\n            _returns = remainingSupply;\\n            remainingSupply = 0;\\n        } else {\\n            remainingSupply -= _returns;\\n        }\\n\\n        lastDecrement = _returns;\\n        if (_returns > 0) {\\n            mintNum[_days] = _mintNum + 1;\\n        }\\n    }\\n\\n    function getTop4Amount(uint256 _decimals, uint256 _mintNum) private pure returns (uint256 _returns) {\\n        if (_mintNum == 0) return 10 ** _decimals * firstMintByDay;\\n        if (_mintNum == 1) return 10 ** _decimals * secondMintByDay;\\n        if (_mintNum == 2) return 10 ** _decimals * thirdMintByDay;\\n        if (_mintNum == 3) return 10 ** _decimals * fourthMintByDay;\\n    }\\n\\n    // ==================== owner function ====================\\n\\n    /**\\n     * @dev Initializes the MeritCoin contract address.\\n     * @param _meritCoin The address of the MeritCoin contract.\\n     * Requirements:\\n     * - Only the contract owner can call this function.\\n     */\\n    function initMeritCoin(address _meritCoin) external onlyOwner {\\n        require(meritCoin == address(0), \\\"CyberFortuneGod: meritCoin has been set\\\");\\n        meritCoin = _meritCoin;\\n        emit InitMeritCoin(msg.sender, _meritCoin);\\n    }\\n\\n    /**\\n     * @dev Initializes the FortuneStick contract address.\\n     * @param _fortuneStick The address of the FortuneStick contract.\\n     * Requirements:\\n     * - Only the contract owner can call this function.\\n     */\\n    function initFortuneStick(address _fortuneStick) external onlyOwner {\\n        require(fortuneStick == address(0), \\\"CyberFortuneGod: fortuneStick has been set\\\");\\n        fortuneStick = _fortuneStick;\\n        emit InitFortuneStick(msg.sender, _fortuneStick);\\n    }\\n\\n    /**\\n     * @dev Allows the owner to withdraw ETH from the contract.\\n     * @param _to The address to which the ETH will be transferred.\\n     */\\n    function withdrawETH(address _to) external onlyOwner {\\n        uint256 _balance = address(this).balance;\\n        payable(_to).transfer(_balance);\\n\\n        emit WithdrawETH(msg.sender, _to, _balance);\\n    }\\n\\n    /**\\n     * @dev Sets the total supply by day.\\n     * Can only be called by the contract owner.\\n     * @param _new The new total supply value.\\n     */\\n    function setTotalSupplyByDay(uint256 _new) external onlyOwner {\\n        uint256 _old = totalSupplyByDay;\\n        totalSupplyByDay = _new;\\n        emit SetTotalSupplyByDay(msg.sender, _old, _new);\\n    }\\n\\n    /**\\n     * @dev Sets the mint price for MeritCoin (in offeringIncense)\\n     * @param _new The new mint price to be set.\\n     * Requirements:\\n     * - Only the contract owner can call this function.\\n     */\\n    function setMintPrice(uint256 _new) external onlyOwner {\\n        uint256 _old = mintPrice;\\n        mintPrice = _new;\\n        emit SetMintPrice(msg.sender, _old, _new);\\n    }\\n\\n    /**\\n     * @dev Sets the decrease coefficient for the MeritCoin gained in `offeringIncense`\\n     * Only the contract owner can call this function.\\n     * @param _new The new value for the decrease coefficient.\\n     */\\n    function setDecreaseCoefficient(uint256 _new) external onlyOwner {\\n        uint256 _old = decreaseCoefficient;\\n        decreaseCoefficient = _new;\\n        emit SetDecreaseCoefficient(msg.sender, _old, _new);\\n    }\\n\\n    receive() external payable {}\\n}\\n\",\"keccak256\":\"0xdea31323575f6e1d9fd526bd1126eb7d3f3d634b23006b18e6998791d36713a1\",\"license\":\"MIT\"},\"contracts/interface/IFortuneStick.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.20;\\n\\ninterface IFortuneStick {\\n    function draw(address _to) external returns (uint256 _tokenId);\\n\\n    function getStickNo(uint256 _tokenId) external view returns (address _tokenMinter, uint256 _stickNo);\\n}\\n\",\"keccak256\":\"0xd7b1596e5532f2e9daf4d03f0b9c6cd78f471aad43a31b5b5f94c46944717575\",\"license\":\"MIT\"},\"contracts/interface/IMeritCoin.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.20;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\\\";\\n\\ninterface IMeritCoin is IERC20Metadata {\\n    function mint(address _to, uint256 _amount) external;\\n\\n    function burn(uint256 _amount) external;\\n}\\n\",\"keccak256\":\"0x4cfdcec35b7730707620d4bdeeeaa33355397972c50bbf7f685116efe53a1c22\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b5060405162001994380380620019948339810160408190526200003491620002a2565b62000042848484846200004c565b50505050620002d9565b600054610100900460ff16158080156200006d5750600054600160ff909116105b80620000895750303b15801562000089575060005460ff166001145b620000f25760405162461bcd60e51b815260206004820152602e60248201527f496e697469616c697a61626c653a20636f6e747261637420697320616c72656160448201526d191e481a5b9a5d1a585b1a5e995960921b60648201526084015b60405180910390fd5b6000805460ff19166001179055801562000116576000805461ff0019166101001790555b6200012062000187565b606785905560698490556068839055606a829055606b839055801562000180576000805461ff0019169055604051600181527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b5050505050565b600054610100900460ff16620001e35760405162461bcd60e51b815260206004820152602b60248201526000805160206200197483398151915260448201526a6e697469616c697a696e6760a81b6064820152608401620000e9565b620001ed620001ef565b565b600054610100900460ff166200024b5760405162461bcd60e51b815260206004820152602b60248201526000805160206200197483398151915260448201526a6e697469616c697a696e6760a81b6064820152608401620000e9565b620001ed33603380546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b60008060008060808587031215620002b957600080fd5b505082516020840151604085015160609095015191969095509092509050565b61168b80620002e96000396000f3fe6080604052600436106101c55760003560e01c80637db79418116100f7578063b7dc47af11610095578063da0239a611610064578063da0239a6146104e2578063f2fde38b146104f8578063f4a0a52814610518578063fcdec5341461053857600080fd5b8063b7dc47af14610477578063c9a6bd511461048d578063d00ebaeb146104a2578063d22f1489146104c257600080fd5b80638e3d7ae7116100d15780638e3d7ae7146104235780638f7a0c4914610438578063a1545ef51461044d578063b76d9db91461046257600080fd5b80637db79418146103da5780638ccc6e16146103f05780638da5cb5b1461040557600080fd5b8063619f6565116101645780636817c76c1161013e5780636817c76c14610379578063690d83201461038f578063715018a6146103af57806378e97925146103c457600080fd5b8063619f6565146102c95780636324364314610309578063654020d71461034157600080fd5b80631426df7b116101a05780631426df7b14610246578063223d534b1461025c5780632ca7512d1461028957806360a2da44146102a957600080fd5b80622fc804146101d157806308becc97146101f35780630c2823191461021357600080fd5b366101cc57005b600080fd5b3480156101dd57600080fd5b506101f16101ec366004611360565b610540565b005b3480156101ff57600080fd5b506101f161020e366004611360565b610612565b34801561021f57600080fd5b5061023361022e366004611360565b6106db565b6040519081526020015b60405180910390f35b34801561025257600080fd5b5061023360695481565b34801561026857600080fd5b5061023361027736600461137d565b606d6020526000908152604090205481565b34801561029557600080fd5b506101f16102a436600461137d565b61071e565b3480156102b557600080fd5b506101f16102c4366004611396565b61076e565b3480156102d557600080fd5b506102f96102e436600461137d565b606e6020526000908152604090205460ff1681565b604051901515815260200161023d565b34801561031557600080fd5b506102336103243660046113c8565b606f60209081526000928352604080842090915290825290205481565b34801561034d57600080fd5b50606654610361906001600160a01b031681565b6040516001600160a01b03909116815260200161023d565b34801561038557600080fd5b50610233606a5481565b34801561039b57600080fd5b506101f16103aa366004611360565b61089c565b3480156103bb57600080fd5b506101f1610923565b3480156103d057600080fd5b5061023360675481565b3480156103e657600080fd5b50610233606c5481565b3480156103fc57600080fd5b50610233601e81565b34801561041157600080fd5b506033546001600160a01b0316610361565b34801561042f57600080fd5b506101f1610937565b34801561044457600080fd5b50610233604281565b34801561045957600080fd5b50610233610cc1565b34801561046e57600080fd5b50610233602481565b34801561048357600080fd5b5061023360685481565b34801561049957600080fd5b50610233605881565b3480156104ae57600080fd5b50606554610361906001600160a01b031681565b3480156104ce57600080fd5b506101f16104dd36600461137d565b610ce4565b3480156104ee57600080fd5b50610233606b5481565b34801561050457600080fd5b506101f1610513366004611360565b610d28565b34801561052457600080fd5b506101f161053336600461137d565b610da1565b6101f1610de5565b610548611099565b6065546001600160a01b0316156105b65760405162461bcd60e51b815260206004820152602760248201527f4379626572466f7274756e65476f643a206d65726974436f696e20686173206260448201526619595b881cd95d60ca1b60648201526084015b60405180910390fd5b606580546001600160a01b0319166001600160a01b0383169081179091556040805133815260208101929092527f87a0cb2691d97e4b82f03339ec77464fa872916b6ec117212f18469c0aa79b9091015b60405180910390a150565b61061a611099565b6066546001600160a01b0316156106865760405162461bcd60e51b815260206004820152602a60248201527f4379626572466f7274756e65476f643a20666f7274756e65537469636b2068616044820152691cc81899595b881cd95d60b21b60648201526084016105ad565b606680546001600160a01b0319166001600160a01b0383169081179091556040805133815260208101929092527faac60737ab2db5909f0c752457d0575d6e7531fd5afa20d0d824dd11c735b32f9101610607565b6000806106e6610cc1565b6000818152606f602090815260408083206001600160a01b038816845290915290205490915061071790600361140e565b9392505050565b610726611099565b60688054908290556040517f7d04a0355efa5ef2f43cad750aa6ac7f24661cfe8fc9b8594c91e03aad14688d9061076290339084908690611421565b60405180910390a15050565b600054610100900460ff161580801561078e5750600054600160ff909116105b806107a85750303b1580156107a8575060005460ff166001145b61080b5760405162461bcd60e51b815260206004820152602e60248201527f496e697469616c697a61626c653a20636f6e747261637420697320616c72656160448201526d191e481a5b9a5d1a585b1a5e995960921b60648201526084016105ad565b6000805460ff19166001179055801561082e576000805461ff0019166101001790555b6108366110f3565b606785905560698490556068839055606a829055606b8390558015610895576000805461ff0019169055604051600181527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b5050505050565b6108a4611099565b60405147906001600160a01b0383169082156108fc029083906000818181858888f193505050501580156108dc573d6000803e3d6000fd5b50604080513381526001600160a01b03841660208201529081018290527f6b1f4ce962fec27598edceab6195c77516c3df32025eaf0c38d0d4009ac3bd4890606001610762565b61092b611099565b6109356000611122565b565b6065546040805163313ce56760e01b815290516000926001600160a01b03169163313ce5679160048083019260209291908290030181865afa158015610981573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109a59190611442565b60ff16905060006109b782600a611549565b6109c2906008611555565b90506109cf82600a611549565b6109da906008611555565b606554604051636eb1769f60e11b81523360048201523060248201526001600160a01b039091169063dd62ed3e90604401602060405180830381865afa158015610a28573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610a4c919061156c565b1015610ac05760405162461bcd60e51b815260206004820152603c60248201527f4379626572466f7274756e65476f643a2052657175697265732038204d65726960448201527f7420436f696e20746f206472617720666f7274756e6520737469636b0000000060648201526084016105ad565b6065546040516323b872dd60e01b8152336004820152306024820152604481018390526001600160a01b03909116906323b872dd906064016020604051808303816000875af1158015610b17573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b3b9190611585565b50606554604051630852cd8d60e31b8152600481018390526001600160a01b03909116906342966c6890602401600060405180830381600087803b158015610b8257600080fd5b505af1158015610b96573d6000803e3d6000fd5b50506066546040516311e966dd60e21b8152336004820152600093506001600160a01b0390911691506347a59b74906024016020604051808303816000875af1158015610be7573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c0b919061156c565b606654604051630ef95d5d60e31b8152600481018390529192506000916001600160a01b03909116906377caeae8906024016040805180830381865afa158015610c59573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c7d91906115a7565b9150507f5a5b55359c22bf9271a592bcb6f01638e6a77583cb45fc2679f32324750ec22c338383604051610cb393929190611421565b60405180910390a150505050565b60006201518060675442610cd5919061140e565b610cdf91906115d5565b905090565b610cec611099565b60698054908290556040517fd642e463339b60cb1692955dd9977759fd4d0e5026f30d0b473578e8767397d29061076290339084908690611421565b610d30611099565b6001600160a01b038116610d955760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016105ad565b610d9e81611122565b50565b610da9611099565b606a8054908290556040517f55cc83342b4c144a74960fdf0dfe1a7af4cbb77aaccb471b088d5fe0bdad1d4c9061076290339084908690611421565b606a54341015610e4f5760405162461bcd60e51b815260206004820152602f60248201527f4379626572466f7274756e65476f643a207061796d656e7420616d6f756e742060448201526e1a5cc81a5b9cdd59999a58da595b9d608a1b60648201526084016105ad565b6000610e59610cc1565b6000818152606f60209081526040808320338452909152902054909150600311610edb5760405162461bcd60e51b815260206004820152602d60248201527f4379626572466f7274756e65476f643a204d696e7420757020746f207468726560448201526c652074696d657320612064617960981b60648201526084016105ad565b6000818152606e602052604090205460ff16610f4d576000818152606e602052604090819020805460ff19166001179055606854606b55517fbea77d7032571316759bda46ee1544473a0b842e1ad3b20aec6c09b5c588b88990610f4490339084904290611421565b60405180910390a15b6000610f57611174565b905060008111610fcf5760405162461bcd60e51b815260206004820152603760248201527f4379626572466f7274756e65476f643a20546f6461792773204d45524954206860448201527f6173206265656e206469737472696275746564206f757400000000000000000060648201526084016105ad565b6000828152606f602090815260408083203384529091528120805460019290610ff99084906115f7565b90915550506065546040516340c10f1960e01b8152336004820152602481018390526001600160a01b03909116906340c10f1990604401600060405180830381600087803b15801561104a57600080fd5b505af115801561105e573d6000803e3d6000fd5b505060408051338152602081018590527f9dff41da70aedfc40cf8d5e57e66ae3053b5477933045f08db4b19e24918bec99350019050610762565b6033546001600160a01b031633146109355760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657260448201526064016105ad565b600054610100900460ff1661111a5760405162461bcd60e51b81526004016105ad9061160a565b6109356112ae565b603380546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b6000606b546000036111865750600090565b6000611190610cc1565b6000818152606d6020908152604080832054606554825163313ce56760e01b8152925195965090946001600160a01b039091169263313ce56792600480820193918290030181865afa1580156111ea573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061120e9190611442565b60ff169050600482106112455760695461122982600a611549565b606c546112369190611555565b61124091906115d5565b61124f565b61124f81836112de565b9350606b54841061126a57606b805460009091559350611282565b83606b600082825461127c919061140e565b90915550505b606c84905583156112a8576112988260016115f7565b6000848152606d60205260409020555b50505090565b600054610100900460ff166112d55760405162461bcd60e51b81526004016105ad9061160a565b61093533611122565b6000816000036113065760586112f584600a611549565b6112ff9190611555565b9050611345565b8160010361131b5760426112f584600a611549565b816002036113305760246112f584600a611549565b8160030361134557601e6112f584600a611549565b92915050565b6001600160a01b0381168114610d9e57600080fd5b60006020828403121561137257600080fd5b81356107178161134b565b60006020828403121561138f57600080fd5b5035919050565b600080600080608085870312156113ac57600080fd5b5050823594602084013594506040840135936060013592509050565b600080604083850312156113db57600080fd5b8235915060208301356113ed8161134b565b809150509250929050565b634e487b7160e01b600052601160045260246000fd5b81810381811115611345576113456113f8565b6001600160a01b039390931683526020830191909152604082015260600190565b60006020828403121561145457600080fd5b815160ff8116811461071757600080fd5b600181815b808511156114a0578160001904821115611486576114866113f8565b8085161561149357918102915b93841c939080029061146a565b509250929050565b6000826114b757506001611345565b816114c457506000611345565b81600181146114da57600281146114e457611500565b6001915050611345565b60ff8411156114f5576114f56113f8565b50506001821b611345565b5060208310610133831016604e8410600b8410161715611523575081810a611345565b61152d8383611465565b8060001904821115611541576115416113f8565b029392505050565b600061071783836114a8565b8082028115828204841417611345576113456113f8565b60006020828403121561157e57600080fd5b5051919050565b60006020828403121561159757600080fd5b8151801515811461071757600080fd5b600080604083850312156115ba57600080fd5b82516115c58161134b565b6020939093015192949293505050565b6000826115f257634e487b7160e01b600052601260045260246000fd5b500490565b80820180821115611345576113456113f8565b6020808252602b908201527f496e697469616c697a61626c653a20636f6e7472616374206973206e6f74206960408201526a6e697469616c697a696e6760a81b60608201526080019056fea2646970667358221220727614547ceba9bff5eb497426009113b2f1ef57c7381baf93233eaa5de3771964736f6c63430008140033496e697469616c697a61626c653a20636f6e7472616374206973206e6f742069",
+  "deployedBytecode": "0x6080604052600436106101c55760003560e01c80637db79418116100f7578063b7dc47af11610095578063da0239a611610064578063da0239a6146104e2578063f2fde38b146104f8578063f4a0a52814610518578063fcdec5341461053857600080fd5b8063b7dc47af14610477578063c9a6bd511461048d578063d00ebaeb146104a2578063d22f1489146104c257600080fd5b80638e3d7ae7116100d15780638e3d7ae7146104235780638f7a0c4914610438578063a1545ef51461044d578063b76d9db91461046257600080fd5b80637db79418146103da5780638ccc6e16146103f05780638da5cb5b1461040557600080fd5b8063619f6565116101645780636817c76c1161013e5780636817c76c14610379578063690d83201461038f578063715018a6146103af57806378e97925146103c457600080fd5b8063619f6565146102c95780636324364314610309578063654020d71461034157600080fd5b80631426df7b116101a05780631426df7b14610246578063223d534b1461025c5780632ca7512d1461028957806360a2da44146102a957600080fd5b80622fc804146101d157806308becc97146101f35780630c2823191461021357600080fd5b366101cc57005b600080fd5b3480156101dd57600080fd5b506101f16101ec366004611360565b610540565b005b3480156101ff57600080fd5b506101f161020e366004611360565b610612565b34801561021f57600080fd5b5061023361022e366004611360565b6106db565b6040519081526020015b60405180910390f35b34801561025257600080fd5b5061023360695481565b34801561026857600080fd5b5061023361027736600461137d565b606d6020526000908152604090205481565b34801561029557600080fd5b506101f16102a436600461137d565b61071e565b3480156102b557600080fd5b506101f16102c4366004611396565b61076e565b3480156102d557600080fd5b506102f96102e436600461137d565b606e6020526000908152604090205460ff1681565b604051901515815260200161023d565b34801561031557600080fd5b506102336103243660046113c8565b606f60209081526000928352604080842090915290825290205481565b34801561034d57600080fd5b50606654610361906001600160a01b031681565b6040516001600160a01b03909116815260200161023d565b34801561038557600080fd5b50610233606a5481565b34801561039b57600080fd5b506101f16103aa366004611360565b61089c565b3480156103bb57600080fd5b506101f1610923565b3480156103d057600080fd5b5061023360675481565b3480156103e657600080fd5b50610233606c5481565b3480156103fc57600080fd5b50610233601e81565b34801561041157600080fd5b506033546001600160a01b0316610361565b34801561042f57600080fd5b506101f1610937565b34801561044457600080fd5b50610233604281565b34801561045957600080fd5b50610233610cc1565b34801561046e57600080fd5b50610233602481565b34801561048357600080fd5b5061023360685481565b34801561049957600080fd5b50610233605881565b3480156104ae57600080fd5b50606554610361906001600160a01b031681565b3480156104ce57600080fd5b506101f16104dd36600461137d565b610ce4565b3480156104ee57600080fd5b50610233606b5481565b34801561050457600080fd5b506101f1610513366004611360565b610d28565b34801561052457600080fd5b506101f161053336600461137d565b610da1565b6101f1610de5565b610548611099565b6065546001600160a01b0316156105b65760405162461bcd60e51b815260206004820152602760248201527f4379626572466f7274756e65476f643a206d65726974436f696e20686173206260448201526619595b881cd95d60ca1b60648201526084015b60405180910390fd5b606580546001600160a01b0319166001600160a01b0383169081179091556040805133815260208101929092527f87a0cb2691d97e4b82f03339ec77464fa872916b6ec117212f18469c0aa79b9091015b60405180910390a150565b61061a611099565b6066546001600160a01b0316156106865760405162461bcd60e51b815260206004820152602a60248201527f4379626572466f7274756e65476f643a20666f7274756e65537469636b2068616044820152691cc81899595b881cd95d60b21b60648201526084016105ad565b606680546001600160a01b0319166001600160a01b0383169081179091556040805133815260208101929092527faac60737ab2db5909f0c752457d0575d6e7531fd5afa20d0d824dd11c735b32f9101610607565b6000806106e6610cc1565b6000818152606f602090815260408083206001600160a01b038816845290915290205490915061071790600361140e565b9392505050565b610726611099565b60688054908290556040517f7d04a0355efa5ef2f43cad750aa6ac7f24661cfe8fc9b8594c91e03aad14688d9061076290339084908690611421565b60405180910390a15050565b600054610100900460ff161580801561078e5750600054600160ff909116105b806107a85750303b1580156107a8575060005460ff166001145b61080b5760405162461bcd60e51b815260206004820152602e60248201527f496e697469616c697a61626c653a20636f6e747261637420697320616c72656160448201526d191e481a5b9a5d1a585b1a5e995960921b60648201526084016105ad565b6000805460ff19166001179055801561082e576000805461ff0019166101001790555b6108366110f3565b606785905560698490556068839055606a829055606b8390558015610895576000805461ff0019169055604051600181527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b5050505050565b6108a4611099565b60405147906001600160a01b0383169082156108fc029083906000818181858888f193505050501580156108dc573d6000803e3d6000fd5b50604080513381526001600160a01b03841660208201529081018290527f6b1f4ce962fec27598edceab6195c77516c3df32025eaf0c38d0d4009ac3bd4890606001610762565b61092b611099565b6109356000611122565b565b6065546040805163313ce56760e01b815290516000926001600160a01b03169163313ce5679160048083019260209291908290030181865afa158015610981573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109a59190611442565b60ff16905060006109b782600a611549565b6109c2906008611555565b90506109cf82600a611549565b6109da906008611555565b606554604051636eb1769f60e11b81523360048201523060248201526001600160a01b039091169063dd62ed3e90604401602060405180830381865afa158015610a28573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610a4c919061156c565b1015610ac05760405162461bcd60e51b815260206004820152603c60248201527f4379626572466f7274756e65476f643a2052657175697265732038204d65726960448201527f7420436f696e20746f206472617720666f7274756e6520737469636b0000000060648201526084016105ad565b6065546040516323b872dd60e01b8152336004820152306024820152604481018390526001600160a01b03909116906323b872dd906064016020604051808303816000875af1158015610b17573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b3b9190611585565b50606554604051630852cd8d60e31b8152600481018390526001600160a01b03909116906342966c6890602401600060405180830381600087803b158015610b8257600080fd5b505af1158015610b96573d6000803e3d6000fd5b50506066546040516311e966dd60e21b8152336004820152600093506001600160a01b0390911691506347a59b74906024016020604051808303816000875af1158015610be7573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c0b919061156c565b606654604051630ef95d5d60e31b8152600481018390529192506000916001600160a01b03909116906377caeae8906024016040805180830381865afa158015610c59573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c7d91906115a7565b9150507f5a5b55359c22bf9271a592bcb6f01638e6a77583cb45fc2679f32324750ec22c338383604051610cb393929190611421565b60405180910390a150505050565b60006201518060675442610cd5919061140e565b610cdf91906115d5565b905090565b610cec611099565b60698054908290556040517fd642e463339b60cb1692955dd9977759fd4d0e5026f30d0b473578e8767397d29061076290339084908690611421565b610d30611099565b6001600160a01b038116610d955760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016105ad565b610d9e81611122565b50565b610da9611099565b606a8054908290556040517f55cc83342b4c144a74960fdf0dfe1a7af4cbb77aaccb471b088d5fe0bdad1d4c9061076290339084908690611421565b606a54341015610e4f5760405162461bcd60e51b815260206004820152602f60248201527f4379626572466f7274756e65476f643a207061796d656e7420616d6f756e742060448201526e1a5cc81a5b9cdd59999a58da595b9d608a1b60648201526084016105ad565b6000610e59610cc1565b6000818152606f60209081526040808320338452909152902054909150600311610edb5760405162461bcd60e51b815260206004820152602d60248201527f4379626572466f7274756e65476f643a204d696e7420757020746f207468726560448201526c652074696d657320612064617960981b60648201526084016105ad565b6000818152606e602052604090205460ff16610f4d576000818152606e602052604090819020805460ff19166001179055606854606b55517fbea77d7032571316759bda46ee1544473a0b842e1ad3b20aec6c09b5c588b88990610f4490339084904290611421565b60405180910390a15b6000610f57611174565b905060008111610fcf5760405162461bcd60e51b815260206004820152603760248201527f4379626572466f7274756e65476f643a20546f6461792773204d45524954206860448201527f6173206265656e206469737472696275746564206f757400000000000000000060648201526084016105ad565b6000828152606f602090815260408083203384529091528120805460019290610ff99084906115f7565b90915550506065546040516340c10f1960e01b8152336004820152602481018390526001600160a01b03909116906340c10f1990604401600060405180830381600087803b15801561104a57600080fd5b505af115801561105e573d6000803e3d6000fd5b505060408051338152602081018590527f9dff41da70aedfc40cf8d5e57e66ae3053b5477933045f08db4b19e24918bec99350019050610762565b6033546001600160a01b031633146109355760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657260448201526064016105ad565b600054610100900460ff1661111a5760405162461bcd60e51b81526004016105ad9061160a565b6109356112ae565b603380546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b6000606b546000036111865750600090565b6000611190610cc1565b6000818152606d6020908152604080832054606554825163313ce56760e01b8152925195965090946001600160a01b039091169263313ce56792600480820193918290030181865afa1580156111ea573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061120e9190611442565b60ff169050600482106112455760695461122982600a611549565b606c546112369190611555565b61124091906115d5565b61124f565b61124f81836112de565b9350606b54841061126a57606b805460009091559350611282565b83606b600082825461127c919061140e565b90915550505b606c84905583156112a8576112988260016115f7565b6000848152606d60205260409020555b50505090565b600054610100900460ff166112d55760405162461bcd60e51b81526004016105ad9061160a565b61093533611122565b6000816000036113065760586112f584600a611549565b6112ff9190611555565b9050611345565b8160010361131b5760426112f584600a611549565b816002036113305760246112f584600a611549565b8160030361134557601e6112f584600a611549565b92915050565b6001600160a01b0381168114610d9e57600080fd5b60006020828403121561137257600080fd5b81356107178161134b565b60006020828403121561138f57600080fd5b5035919050565b600080600080608085870312156113ac57600080fd5b5050823594602084013594506040840135936060013592509050565b600080604083850312156113db57600080fd5b8235915060208301356113ed8161134b565b809150509250929050565b634e487b7160e01b600052601160045260246000fd5b81810381811115611345576113456113f8565b6001600160a01b039390931683526020830191909152604082015260600190565b60006020828403121561145457600080fd5b815160ff8116811461071757600080fd5b600181815b808511156114a0578160001904821115611486576114866113f8565b8085161561149357918102915b93841c939080029061146a565b509250929050565b6000826114b757506001611345565b816114c457506000611345565b81600181146114da57600281146114e457611500565b6001915050611345565b60ff8411156114f5576114f56113f8565b50506001821b611345565b5060208310610133831016604e8410600b8410161715611523575081810a611345565b61152d8383611465565b8060001904821115611541576115416113f8565b029392505050565b600061071783836114a8565b8082028115828204841417611345576113456113f8565b60006020828403121561157e57600080fd5b5051919050565b60006020828403121561159757600080fd5b8151801515811461071757600080fd5b600080604083850312156115ba57600080fd5b82516115c58161134b565b6020939093015192949293505050565b6000826115f257634e487b7160e01b600052601260045260246000fd5b500490565b80820180821115611345576113456113f8565b6020808252602b908201527f496e697469616c697a61626c653a20636f6e7472616374206973206e6f74206960408201526a6e697469616c697a696e6760a81b60608201526080019056fea2646970667358221220727614547ceba9bff5eb497426009113b2f1ef57c7381baf93233eaa5de3771964736f6c63430008140033",
+  "devdoc": {
+    "events": {
+      "Initialized(uint8)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "drawFortune()": {
+        "details": "Draws a fortune stick for the caller and charges caller 8 Merit Coin. Requirements: - The caller must have approved the contract to spend 8 Merit Coin."
+      },
+      "getDays()": {
+        "details": "Returns the number of days.",
+        "returns": {
+          "_0": "The number of days as a uint256 value."
+        }
+      },
+      "initFortuneStick(address)": {
+        "details": "Initializes the FortuneStick contract address.",
+        "params": {
+          "_fortuneStick": "The address of the FortuneStick contract. Requirements: - Only the contract owner can call this function."
+        }
+      },
+      "initMeritCoin(address)": {
+        "details": "Initializes the MeritCoin contract address.",
+        "params": {
+          "_meritCoin": "The address of the MeritCoin contract. Requirements: - Only the contract owner can call this function."
+        }
+      },
+      "initialize(uint256,uint256,uint256,uint256)": {
+        "details": "Initializes the CyberFortuneGod contract with the specified parameters.",
+        "params": {
+          "_decreaseCoefficient": "The decrease coefficient for the contract.",
+          "_mintPrice": "The mint price for the contract.",
+          "_startTime": "The start time for the contract.",
+          "_totalSupplyByDay": "The total supply by day for the contract."
+        }
+      },
+      "offeringIncense()": {
+        "details": "Performs the action of offering incense, mint MeritCoin for caller"
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "setDecreaseCoefficient(uint256)": {
+        "details": "Sets the decrease coefficient for the MeritCoin gained in `offeringIncense` Only the contract owner can call this function.",
+        "params": {
+          "_new": "The new value for the decrease coefficient."
+        }
+      },
+      "setMintPrice(uint256)": {
+        "details": "Sets the mint price for MeritCoin (in offeringIncense)",
+        "params": {
+          "_new": "The new mint price to be set. Requirements: - Only the contract owner can call this function."
+        }
+      },
+      "setTotalSupplyByDay(uint256)": {
+        "details": "Sets the total supply by day. Can only be called by the contract owner.",
+        "params": {
+          "_new": "The new total supply value."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "withdrawETH(address)": {
+        "details": "Allows the owner to withdraw ETH from the contract.",
+        "params": {
+          "_to": "The address to which the ETH will be transferred."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 138,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 141,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 566,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 10,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 130,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 4001,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "meritCoin",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_address"
+      },
+      {
+        "astId": 4003,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "fortuneStick",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_address"
+      },
+      {
+        "astId": 4005,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "startTime",
+        "offset": 0,
+        "slot": "103",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4007,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "totalSupplyByDay",
+        "offset": 0,
+        "slot": "104",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4009,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "decreaseCoefficient",
+        "offset": 0,
+        "slot": "105",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4011,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "mintPrice",
+        "offset": 0,
+        "slot": "106",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4013,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "remainingSupply",
+        "offset": 0,
+        "slot": "107",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4015,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "lastDecrement",
+        "offset": 0,
+        "slot": "108",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4019,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "mintNum",
+        "offset": 0,
+        "slot": "109",
+        "type": "t_mapping(t_uint256,t_uint256)"
+      },
+      {
+        "astId": 4023,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "updateSupplyByDay",
+        "offset": 0,
+        "slot": "110",
+        "type": "t_mapping(t_uint256,t_bool)"
+      },
+      {
+        "astId": 4029,
+        "contract": "contracts/CyberFortuneGod.sol:CyberFortuneGod",
+        "label": "userMintNumByDay",
+        "offset": 0,
+        "slot": "111",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_uint256,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
