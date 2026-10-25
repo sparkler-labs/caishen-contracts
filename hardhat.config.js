@@ -13,6 +13,11 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 31337,
+      // hardhat 2.29 的 EDR 节点：eth_sendTransaction 的节点侧估算失败时静默回退到
+      // blockGasLimit（默认 60M），再被 EDR 单笔 gas cap（16,777,216）拒绝，真实
+      // revert 原因被吞掉（本地部署 initMeritCoin 即此症状）。把块上限压到 cap 以内，
+      // 回退值可通过校验正常出块；本地业务交易实际 <1M，行为不受影响。
+      blockGasLimit: 16_000_000,
     },
     localhost: {
       url: process.env.LOCAL_RPC_URL || "http://127.0.0.1:8545",
